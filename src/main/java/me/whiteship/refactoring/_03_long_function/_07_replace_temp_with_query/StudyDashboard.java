@@ -1,10 +1,5 @@
 package me.whiteship.refactoring._03_long_function._07_replace_temp_with_query;
 
-import org.kohsuke.github.GHIssue;
-import org.kohsuke.github.GHIssueComment;
-import org.kohsuke.github.GHRepository;
-import org.kohsuke.github.GitHub;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,7 +10,15 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.kohsuke.github.GHIssue;
+import org.kohsuke.github.GHIssueComment;
+import org.kohsuke.github.GHRepository;
+import org.kohsuke.github.GitHub;
+
 public class StudyDashboard {
+	// 임시 변수를 질의 함수로 바꾸기 여기서의 쿼리는 함수를 의미함
+	// 변수를 사용하여 반복적인 계산을 피하고 이름을 사용하여 의미를 표현
+	// 이 기법은 긴 함수를 리팩토링할때 임시 변수를 함수로 추출한다면 전달해야할 매개변수를 줄일 수 있다.
 
     public static void main(String[] args) throws IOException, InterruptedException {
         StudyDashboard studyDashboard = new StudyDashboard();
@@ -71,17 +74,25 @@ public class StudyDashboard {
 
             writer.print(header(totalNumberOfEvents, participants.size()));
 
-            participants.forEach(p -> {
-                long count = p.homework().values().stream()
-                        .filter(v -> v == true)
-                        .count();
-                double rate = count * 100 / totalNumberOfEvents;
+			participants.forEach(p -> {
+				String markdownForHomework = getMarkdownForParticipant(totalNumberOfEvents, p);
+				writer.print(markdownForHomework);
+			});
+		}
+	}
 
-                String markdownForHomework = String.format("| %s %s | %.2f%% |\n", p.username(), checkMark(p, totalNumberOfEvents), rate);
-                writer.print(markdownForHomework);
-            });
-        }
-    }
+	private String getMarkdownForParticipant(int totalNumberOfEvents, Participant p) {
+		return String.format("| %s %s | %.2f%% |\n", p.username(), checkMark(p, totalNumberOfEvents),
+			getRate(totalNumberOfEvents, p));
+	}
+
+	private double getRate(int totalNumberOfEvents, Participant p) {
+		long count = p.homework().values().stream()
+			.filter(v -> v == true)
+			.count();
+		double rate = count * 100 / totalNumberOfEvents;
+		return rate;
+	}
 
     /**
      * | 참여자 (420) | 1주차 | 2주차 | 3주차 | 참석율 |
