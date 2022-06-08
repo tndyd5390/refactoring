@@ -1,10 +1,5 @@
 package me.whiteship.refactoring._03_long_function._08_introdce_parameter_object;
 
-import org.kohsuke.github.GHIssue;
-import org.kohsuke.github.GHIssueComment;
-import org.kohsuke.github.GHRepository;
-import org.kohsuke.github.GitHub;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,10 +10,22 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.kohsuke.github.GHIssue;
+import org.kohsuke.github.GHIssueComment;
+import org.kohsuke.github.GHRepository;
+import org.kohsuke.github.GitHub;
+
 public class StudyDashboard {
+    private int totalNumberOfEvents;
+
+    // 매개변수 객체 만들기
+    //여러 메소드에 같은 메소드에 나타난다면 그 매개변수를 묶은 자료구조를 만들 수 있다.
+    public StudyDashboard(int totalNumberOfEvents) {
+        this.totalNumberOfEvents = totalNumberOfEvents;
+    }
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        StudyDashboard studyDashboard = new StudyDashboard();
+        StudyDashboard studyDashboard = new StudyDashboard(15);
         studyDashboard.print();
     }
 
@@ -69,40 +76,41 @@ public class StudyDashboard {
              PrintWriter writer = new PrintWriter(fileWriter)) {
             participants.sort(Comparator.comparing(Participant::username));
 
-            writer.print(header(totalNumberOfEvents, participants.size()));
+            writer.print(header(participants.size()));
 
             participants.forEach(p -> {
-                String markdownForHomework = getMarkdownForParticipant(totalNumberOfEvents, p);
+                String markdownForHomework = getMarkdownForParticipant(p);
                 writer.print(markdownForHomework);
             });
         }
     }
-
-    private double getRate(int totalNumberOfEvents, Participant p) {
+    //totalNumberOfEvents와 Participant가 자주나타난다. 그래서 record로 리팩토링 해보자
+    private double getRate(Participant p) {
         long count = p.homework().values().stream()
                 .filter(v -> v == true)
                 .count();
-        double rate = count * 100 / totalNumberOfEvents;
+        double rate = count * 100 / this.totalNumberOfEvents;
         return rate;
     }
 
-    private String getMarkdownForParticipant(int totalNumberOfEvents, Participant p) {
-        return String.format("| %s %s | %.2f%% |\n", p.username(), checkMark(p, totalNumberOfEvents), getRate(totalNumberOfEvents, p));
+    private String getMarkdownForParticipant(Participant p) {
+        return String.format("| %s %s | %.2f%% |\n", p.username(), checkMark(p, this.totalNumberOfEvents),
+                getRate(p));
     }
 
     /**
      * | 참여자 (420) | 1주차 | 2주차 | 3주차 | 참석율 |
      * | --- | --- | --- | --- | --- |
      */
-    private String header(int totalNumberOfEvents, int totalNumberOfParticipants) {
-        StringBuilder header = new StringBuilder(String.format("| 참여자 (%d) |", totalNumberOfParticipants));
+    private String header(int totalNumberOfEvents) {
+        StringBuilder header = new StringBuilder(String.format("| 참여자 (%d) |", this.totalNumberOfEvents));
 
-        for (int index = 1; index <= totalNumberOfEvents; index++) {
+        for (int index = 1; index <= this.totalNumberOfEvents; index++) {
             header.append(String.format(" %d주차 |", index));
         }
         header.append(" 참석율 |\n");
 
-        header.append("| --- ".repeat(Math.max(0, totalNumberOfEvents + 2)));
+        header.append("| --- ".repeat(Math.max(0, this.totalNumberOfEvents + 2)));
         header.append("|\n");
 
         return header.toString();
