@@ -162,6 +162,7 @@
 | dudqls5271 |:white_check_mark:|:white_check_mark:|:white_check_mark:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x: | 20.00% |
 | dwywdo |:white_check_mark:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x: | 6.67% |
 | eatnows |:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:x:|:x:|:x: | 80.00% |
+| economyjang |:white_check_mark:|:white_check_mark:|:white_check_mark:|:x:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:x: | 86.67% |
 | edjzz |:white_check_mark:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x: | 6.67% |
 | ehdrhelr |:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:x:|:x:|:x:|:x:|:x:|:x:|:x: | 53.33% |
 | eichel130 |:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x: | 46.67% |
@@ -270,7 +271,6 @@
 | kwj1270 |:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark: | 100.00% |
 | kys4548 |:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x: | 33.33% |
 | kyu9 |:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:x: | 93.33% |
-| kyungjaejang |:white_check_mark:|:white_check_mark:|:white_check_mark:|:x:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:x: | 86.67% |
 | kyunyan |:white_check_mark:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x: | 6.67% |
 | ldw1220 |:white_check_mark:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x:|:x: | 6.67% |
 | league3236 |:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:x:|:white_check_mark:|:white_check_mark:|:x:|:x:|:x:|:x:|:x:|:x:|:x: | 46.67% |

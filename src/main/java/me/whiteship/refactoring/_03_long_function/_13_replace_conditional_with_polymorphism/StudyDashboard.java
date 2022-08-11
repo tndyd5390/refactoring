@@ -29,7 +29,7 @@ public class StudyDashboard {
 
     private void print() throws IOException, InterruptedException {
         checkGithubIssues(getGhRepository());
-        new StudyPrinter(this.totalNumberOfEvents, this.participants, PrinterMode.MARKDOWN).execute();
+        new MarkdownPrinter(this.totalNumberOfEvents, this.participants).execute();
     }
 
     private GHRepository getGhRepository() throws IOException {
@@ -41,7 +41,7 @@ public class StudyDashboard {
         ExecutorService service = Executors.newFixedThreadPool(8);
         CountDownLatch latch = new CountDownLatch(totalNumberOfEvents);
 
-        for (int index = 1 ; index <= totalNumberOfEvents ; index++) {
+        for (int index = 1; index <= totalNumberOfEvents; index++) {
             int eventId = index;
             service.execute(() -> {
                 try {
@@ -67,8 +67,8 @@ public class StudyDashboard {
 
     private Participant findParticipant(String username, List<Participant> participants) {
         return isNewParticipant(username, participants) ?
-                createNewParticipant(username, participants) :
-                findExistingParticipant(username, participants);
+            createNewParticipant(username, participants) :
+            findExistingParticipant(username, participants);
     }
 
     private Participant findExistingParticipant(String username, List<Participant> participants) {
