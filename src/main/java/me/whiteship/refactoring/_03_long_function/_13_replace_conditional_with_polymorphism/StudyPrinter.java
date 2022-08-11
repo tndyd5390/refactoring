@@ -17,7 +17,9 @@ public abstract class StudyPrinter {
     }
 
     // 아래의 스위치문을 다형성을 사용하여 없애보자
+    // swtich 문을 없앴다.
     public abstract void execute() throws IOException;
+
 
     /**
      * |:white_check_mark:|:white_check_mark:|:white_check_mark:|:x:|
